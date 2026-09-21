@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServerStatus from '../components/ServerStatus.astro';
+import MapEmbed from '../components/MapEmbed.astro';
+import { siteConfig } from '../config';
+
+const base = import.meta.env.BASE_URL;
+const cards = [
+  {
+    title: 'Getting Started',
+    body: 'How to apply, install the modpack, and get in the world.',
+    href: `${base}docs/getting-started/`,
+    cta: 'Start here',
+  },
+  {
+    title: 'The Rules',
+    body: 'What keeps a small, hard-difficulty SMP friendly.',
+    href: `${base}docs/rules/`,
+    cta: 'Read the rules',
+  },
+  {
+    title: 'The Lore',
+    body: 'Realms, characters, factions, and the history so far.',
+    href: `${base}lore/`,
+    cta: 'Enter the lore',
+  },
+  {
+    title: 'The Modpack',
+    body: 'Modlist, changelog, and how development is coordinated.',
+    href: `${base}mods/`,
+    cta: 'See the mods',
+  },
+];
+---
+
+<BaseLayout
+  title="A provisional world, NeoForge 1.21.1"
+  description={siteConfig.tagline}
+>
+  <section class="hero">
+    <h1>The Last Celestial</h1>
+    <p class="tagline">{siteConfig.tagline}</p>
+    <p lang="en">
+      A small, hard-mode, tightly-lore'd Minecraft community. Join the address:
+    </p>
+    <code class="mc-address">{siteConfig.mcAddressDisplay}</code>
+    <p class="pill">{siteConfig.loader}</p>
+    <p class="pill">Minecraft {siteConfig.minecraftVersion}</p>
+    <p class="pill">Survival · Hard</p>
+  </section>
+
+  <section class="grid">
+    {cards.map((c) => (
+      <div class="card">
+        <h3>{c.title}</h3>
+        <p>{c.body}</p>
+        <a href={c.href}>{c.cta} →</a>
+      </div>
+    ))}
+  </section>
+
+  <section class="grid" style="grid-template-columns: 1fr">
+    <ServerStatus />
+  </section>
+
+  <section class="grid" style="grid-template-columns: 1fr; margin-top: 16px">
+    <MapEmbed />
+  </section>
+</BaseLayout>

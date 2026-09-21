@@ -1,0 +1,21 @@
+# build output
+dist/
+.astro/
+
+# dependencies
+node_modules/
+
+# local dev
+npm-debug.log*
+.DS_Store
+
+# NEVER commit server secrets / runtime files copied from the server
+server.properties
+*.secret
+*.sig
+usercache.json
+usernamecache.json
+whitelist.json
+banned-players.json
+banned-ips.json
+ops.json
