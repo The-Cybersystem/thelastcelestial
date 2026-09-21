@@ -1,0 +1,69 @@
+---
+import { siteConfig } from '../config';
+
+const url = siteConfig.livePlayersUrl;
+const refresh = siteConfig.updateIntervalMs;
+const mapLink = siteConfig.mapEmbedUrl;
+---
+
+<div class="card players" id="server-status">
+  <h3 id="status-title">Server status</h3>
+  <span class="status" id="status-line">
+    <span class="dot unknown" id="status-dot"></span>
+    <span id="status-text">Checking…</span>
+  </span>
+  <ul id="player-list"></ul>
+  <p class="lede" style="margin: 10px 0 0; font-size: 0.85rem;">
+    Live view of the server map:{' '}
+    <a href={mapLink} target="_blank" rel="noopener noreferrer">open full map</a>
+  </p>
+</div>
+
+<script define:vars={{ url, refresh }}>
+  const dot = document.querySelector('#status-dot');
+  const text = document.querySelector('#status-text');
+  const list = document.querySelector('#player-list');
+
+  let lastKnownOnline = false;
+
+  async function refreshNow() {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      const players = (data.players ?? {}) as Record<
+        string,
+        { name?: string; online?: boolean }
+      >;
+      const online = Object.values(players)
+        .filter((p) => p.online !== false && Boolean(p.name))
+        .map((p) => p.name)
+        .sort();
+
+      lastKnownOnline = true;
+      dot.className = 'dot ok';
+      text.textContent = online.length
+        ? `Online · ${online.length} player${online.length === 1 ? '' : 's'}`
+        : 'Online · server is quiet right now';
+
+      list.replaceChildren();
+      if (online.length) {
+        for (const name of online) {
+          const li = document.createElement('li');
+          li.textContent = name;
+          list.appendChild(li);
+        }
+      } else {
+        const li = document.createElement('li');
+        li.textContent = 'map is quiet';
+        list.appendChild(li);
+      }
+    } catch {
+      dot.className = 'dot';
+      text.textContent = 'Offline or unreachable';
+    }
+  }
+
+  refreshNow();
+  setInterval(refreshNow, refresh);
+</script>

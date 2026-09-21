@@ -1,0 +1,26 @@
+---
+import { siteConfig } from '../config';
+
+const src = siteConfig.mapEmbedUrl;
+const base = import.meta.env.BASE_URL;
+---
+
+<div class="card">
+  <h3 style="margin-top: 0">Live map</h3>
+  <iframe
+    class="map-frame"
+    src={src}
+    title="BlueMap — The Last Celestial"
+    loading="lazy"
+    referrerpolicy="no-referrer"
+  ></iframe>
+  <p class="lede" style="margin: 10px 0 0; font-size: 0.85rem;">
+    The map is the real server world, rendered
+    <a href={`${base}mods/`}>BlueMap</a> and served live. If the frame is blank
+    the map service may be offline —{' '}
+    <a href={src} target="_blank" rel="noopener noreferrer">
+      open it directly
+    </a>
+    .
+  </p>
+</div>

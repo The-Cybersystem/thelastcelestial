@@ -1,0 +1,58 @@
+---
+import { siteConfig } from '../config';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pageTitle = title ? `${title} · ${siteConfig.name}` : siteConfig.name;
+const pageDesc = description ?? siteConfig.tagline;
+
+const links: { href: string; label: string }[] = [
+  { href: `${base}`, label: 'Home' },
+  { href: `${base}docs/getting-started/`, label: 'Getting Started' },
+  { href: `${base}docs/rules/`, label: 'Rules' },
+  { href: `${base}lore/`, label: 'Lore' },
+  { href: `${base}mods/`, label: 'Mods' },
+  { href: `${base}archive/`, label: 'Archive' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={pageDesc} />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap row">
+        <div class="brand">
+          <span class="mark" aria-hidden="true">✦</span>
+          <a class="brand-name" href={base}>{siteConfig.name}</a>
+        </div>
+        <nav class="main" aria-label="Primary">
+          {links.map((l) => (
+            <a href={l.href}>{l.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main class="wrap">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        Source lives on GitHub — edits welcome via pull request:{' '}
+        <a href={siteConfig.repo}>{siteConfig.repo}</a>
+      </div>
+    </footer>
+  </body>
+</html>
