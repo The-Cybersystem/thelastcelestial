@@ -10,8 +10,8 @@ export const siteConfig = {
   repo: 'https://github.com/The-Cybersystem/thelastcelestial',
 
   /** Address players type into Minecraft to join. */
-  minecraftAddress: 'YOUR-DDNS-HOSTNAME',
-  minecraftPort: 25565,
+  minecraftAddress: 'exploringfoundation.ddns.net',
+  minecraftPort: 25564,
   minecraftVersion: '1.21.1',
   loader: 'NeoForge',
 
