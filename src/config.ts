@@ -15,12 +15,8 @@ export const siteConfig = {
   minecraftVersion: '1.21.1',
   loader: 'NeoForge',
 
-  /**
-   * Live map bridge (BlueMap behind a Tailscale Funnel).
-   * Set mapBaseUrl to your funnel URL once `tailscale funnel` is running,
-   * e.g. "https://mc-server.my-tailnet.ts.net".
-   */
-  mapBaseUrl: 'https://YOUR.tailnet.ts.net',
+  /** Live map bridge (BlueMap behind a Tailscale Funnel). */
+  mapBaseUrl: 'https://riven-webster-dev.saiga-saturation.ts.net',
 
   /** BlueMap map id for the Overworld (generated on first BlueMap boot). */
   mapId: 'world',
