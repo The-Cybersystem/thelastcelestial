@@ -133,6 +133,17 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
 
 .join { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 8px 0 12px; }
 .join .mc-address { margin: 0; }
+.join a.discord-cta {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: #5865f2;
+  border: 1px solid #5865f2;
+  border-radius: 10px;
+  padding: 9px 16px;
+  text-decoration: none;
+}
+.join a.discord-cta:hover { filter: brightness(1.1); }
 #copy-address {
   font-family: var(--sans);
   font-size: 0.9rem;

@@ -54,6 +54,7 @@ const stats = [
     <div class="join">
       <code class="mc-address">{siteConfig.mcAddressDisplay}</code>
       <button id="copy-address" type="button">Copy</button>
+      {siteConfig.discordInvite && <a class="discord-cta" href={siteConfig.discordInvite}>Join the Discord →</a>}
     </div>
     <div class="pills">
       {stats.map((s) => (
