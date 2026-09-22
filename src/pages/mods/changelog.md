@@ -1,13 +1,13 @@
 ---
 title: Changelog
-description: What changed in the modpack.
+description: Every modpack release, newest first.
 layout: ../../layouts/BaseLayout.astro
 ---
 
 Every modpack release is logged here, newest first. Each entry maps to the
-live pack version shown on the [Mods page](../) (`src/data/version.json`).
+live pack version shown on the [Mods page](../).
 
-## 0.1.0 — provisional
+## 0.1.0 — first launch
 
-- Initial curated pack, NeoForge 1.21.1.
-- Server integrity baseline published (116 mods).
+- First curated pack, Minecraft 1.21.1 (NeoForge 21.1), 115 mods.
+- The world opens in alpha: by design, we test mods here in the open.

@@ -126,13 +126,12 @@ Discord alike.
 
 - No dupe, no glitch, no exploit turned to gain. What is found broken is reported, not spent.
 - This stands apart from sanctioned alpha-testing, where the same four-factor weighing applies to what's uncovered.
-- A light, custom anti-cheat watches the world:
-  - Every resource pack and every file in a player's `mods` folder is hashed with SHA-256.
-  - Each hash is checked against the server's own, with allowances made for testing and development builds.
-  - It reads nothing from memory — only what is disclosed, hashed, and compared.
-- **To join is to consent** — every player is told, plainly, that they are testing, and that their files will be hashed. Nothing further is watched, and nothing is hidden about what is.
+- A verification system watches the world:
+  - To ensure a cheat-free environment and protect our economy, our server uses an automated verification system to check the mods and client files (.jar files) you use when connecting.
+  - It reads nothing from memory — only the files you connect with are checked, and nothing is hidden about what is.
+- **To join is to consent** — every player is told, plainly, that they are testing, and that their files are checked.
 
-A false flag does not happen absent a true collision — and none has ever been seen.
+A false flag has never been seen.
 
 ## What Testing Asks of You
 

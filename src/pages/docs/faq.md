@@ -10,12 +10,12 @@ Common questions get added here as the community grows.
 Ask any member or the admin for an invite, and you'll be whitelisted and
 sent the exact pack archive. It's invite-only by design.
 
-**What modpack / loader?** — NeoForge 1.21.1, distributed as an exact pack. See
-[the modpack page](./modpack/).
+**What version and loader?** — **NeoForge 1.21.1** — not Fabric, and not a
+plain vanilla world. See [the modpack page](./modpack/).
 
-**Is the map real?** — Yes. The live map on the home page renders the actual
-world server-side; what you see is what's built.
+**Is the map real?** — Yes. The live map on the home page is a live render of
+the actual world, not a screenshot — what you see is what's built.
 
-**Why is my client kicked at login?** — The integrity service compares your
-client's modlist against the blessed baseline. Reinstall the official pack
-exactly.
+**Why won't the game let me in?** — The server checks your game files before
+you join. If yours aren't the official pack, you're turned away at the door.
+Reinstall the pack you were sent and you'll be fine.

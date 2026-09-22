@@ -28,7 +28,7 @@ const cards = [
   },
   {
     title: 'The Modpack',
-    body: `Pack ${pack.packVersion} — ${modlist.count} mods on NeoForge 1.21.1.`,
+    body: `${modlist.count} mods on Minecraft ${pack.minecraft}, kept in check.`,
     href: `${base}mods/`,
     cta: 'See the mods',
   },
@@ -36,13 +36,13 @@ const cards = [
 const stats = [
   { label: 'Pack', value: pack.packVersion },
   { label: 'Mods', value: String(modlist.count) },
-  { label: 'Loader', value: 'NeoForge 21.1.250' },
+  { label: 'Loader', value: pack.loader },
   { label: 'Minecraft', value: pack.minecraft },
 ];
 ---
 
 <BaseLayout
-  title="A provisional world, NeoForge 1.21.1"
+  title="A hard-mode Minecraft world, built by its own people"
   description={siteConfig.tagline}
 >
   <section class="hero">

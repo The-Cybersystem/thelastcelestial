@@ -14,7 +14,8 @@ const mapLink = siteConfig.mapEmbedUrl;
   </span>
   <ul id="player-list"></ul>
   <p class="lede" style="margin: 10px 0 0; font-size: 0.85rem;">
-    Live view of the server map:{' '}
+    Status comes from the live map feed, not the game connection. Live view of
+    the world:{' '}
     <a href={mapLink} target="_blank" rel="noopener noreferrer">open full map</a>
   </p>
 </div>
@@ -23,44 +24,44 @@ const mapLink = siteConfig.mapEmbedUrl;
   const dot = document.querySelector('#status-dot');
   const text = document.querySelector('#status-text');
   const list = document.querySelector('#player-list');
+  const TIMEOUT_MS = 8000;
+  let controller;
 
-  let lastKnownOnline = false;
+  function setUnreachable() {
+    dot.className = 'dot';
+    text.textContent = "Can't reach the live feed at the moment";
+    list.replaceChildren();
+  }
 
   async function refreshNow() {
+    controller?.abort();
+    controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { signal: controller.signal });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      const players = (data.players ?? {}) as Record<
-        string,
-        { name?: string; online?: boolean }
-      >;
-      const online = Object.values(players)
-        .filter((p) => p.online !== false && Boolean(p.name))
-        .map((p) => p.name)
+      const raw = (data.players ?? []) as Array<{ name?: string }>;
+      const online = raw
+        .filter((p) => typeof p?.name === 'string')
+        .map((p) => (p as { name: string }).name)
         .sort();
 
-      lastKnownOnline = true;
       dot.className = 'dot ok';
       text.textContent = online.length
-        ? `Online · ${online.length} player${online.length === 1 ? '' : 's'}`
-        : 'Online · server is quiet right now';
+        ? `Online · ${online.length} player${online.length === 1 ? '' : 's'} online`
+        : 'Online · no one online at the moment';
 
       list.replaceChildren();
-      if (online.length) {
-        for (const name of online) {
-          const li = document.createElement('li');
-          li.textContent = name;
-          list.appendChild(li);
-        }
-      } else {
+      for (const name of online) {
         const li = document.createElement('li');
-        li.textContent = 'map is quiet';
+        li.textContent = name;
         list.appendChild(li);
       }
     } catch {
-      dot.className = 'dot';
-      text.textContent = 'Offline or unreachable';
+      setUnreachable();
+    } finally {
+      clearTimeout(timer);
     }
   }
 

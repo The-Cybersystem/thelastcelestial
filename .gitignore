@@ -19,3 +19,6 @@ whitelist.json
 banned-players.json
 banned-ips.json
 ops.json
+
+# Private copies of never-published pack files (kept out of the public repo)
+scripts/.local-excludes

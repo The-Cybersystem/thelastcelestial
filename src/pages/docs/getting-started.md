@@ -11,12 +11,12 @@ honesty about the modpack matters more than skill.
    [community Discord](https://discord.gg/raFyu6dFy4). Ask any member (or the
    admin) for an invite, get whitelisted, and receive the join address. The
    address is on the [home page](../).
-2. **Install the modpack** — the pack is distributed **directly to whitelisted
-   players as an archive** (the exact client as a `.zip`). Do **not**
-   hand-assemble mods or reuse an older folder: the server's integrity service
-   verifies your client modlist against the blessed baseline and kicks any
-   deviation at login.
+2. **Install the modpack** — the pack is sent to whitelisted players directly,
+   as a single archive you install on the launcher. Play with it exactly as
+   given: the server checks your game files on join, and anything that isn't
+   the official pack is turned away at the door.
 3. **Follow the rules** — the law of the world (reach of staff, judgment,
    review panel, land & war, integrity) is on [the rules page](../rules/).
 4. **Claim your lore** — every player character has a page under
-   [Lore](../../lore/). Write yours and open a pull request.
+   [Lore](../../lore/). Tell a staff member, or write it up in the Discord,
+   and it'll find its way there.

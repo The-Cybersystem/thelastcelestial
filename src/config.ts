@@ -6,8 +6,7 @@
  */
 export const siteConfig = {
   name: 'The Last Celestial',
-  tagline: 'A provisional world, NeoForge 1.21.1.',
-  repo: 'https://github.com/The-Cybersystem/thelastcelestial',
+  tagline: 'A hard-mode Minecraft world, built by its own people.',
 
   /** Address players type into Minecraft to join. */
   minecraftAddress: 'exploringfoundation.ddns.net',

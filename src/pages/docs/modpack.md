@@ -1,17 +1,16 @@
 ---
 title: The Modpack
-description: What runs in the world and how it is maintained.
+description: The curated pack that runs the world.
 layout: ../../layouts/BaseLayout.astro
 ---
 
-The world runs a curated NeoForge 1.21.1 pack. The full, always-current
-client modlist and pack version live on the [Mods page](../mods/), generated
-from the server itself.
+The world runs a curated pack on **NeoForge 1.21.1** — the loader matters,
+so no one walks in expecting a Fabric world. The full, always-current mod
+list and pack version live on the [Mods page](../mods/).
 
-- Minecraft `1.21.1` · NeoForge
-- pack version, mod count, and changelog: [Mods index](../../mods/) and
+- Minecraft `1.21.1` · NeoForge 21.1
+- pack version, mod count, and release history: [Mods index](../../mods/) and
   [Changelog](../../mods/changelog/)
 
-Installing the pack exactly as published matters — the server's integrity
-service compares your client's modlist against the blessed baseline, and any
-deviation is kicked at login.
+Install the pack exactly as it's sent to you. The server checks your game
+files on join — the official pack passes; anything else is turned away.

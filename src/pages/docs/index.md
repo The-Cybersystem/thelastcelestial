@@ -15,6 +15,3 @@ truth for how the world is run.
 - **[Governance](./governance/)** — managed democracy, what may be put to a vote, how a vote is won, and the tiers of service.
 - **[The Modpack](./modpack/)** — the mod list and how it's maintained.
 - **[FAQ](./faq/)** — common questions.
-
-Every page here is a markdown file in `src/pages/docs/` — edit it, push, and
-the site rebuilds itself.

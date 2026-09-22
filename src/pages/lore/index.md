@@ -15,5 +15,6 @@ living it.
 - **[Factions](./factions/)** — groups that form and fall.
 - **[History](./history/)** — a timeline of what has happened.
 
-Every lore page is just a markdown file. Want the world to remember something?
-Write it and open a pull request.
+Every lore page is a story owned by whoever writes it. Want the world to
+remember something? Tell a staff member, or write it up in the Discord, and
+it'll find its way here.
