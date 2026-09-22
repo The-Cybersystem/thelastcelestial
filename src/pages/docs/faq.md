@@ -4,7 +4,7 @@ description: Common questions about The Last Celestial.
 layout: ../../layouts/BaseLayout.astro
 ---
 
-> **Placeholder.** Collect real questions here as the community grows.
+Common questions get added here as the community grows.
 
 **How do I get whitelisted?** — Ask. Contact the admin; invite-only.
 

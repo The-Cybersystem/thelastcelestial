@@ -131,6 +131,27 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 2em 0; }
   user-select: all;
 }
 
+.join { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 8px 0 12px; }
+.join .mc-address { margin: 0; }
+#copy-address {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+#copy-address:hover { border-color: var(--accent); background: var(--bg-soft); }
+#copy-address:active { transform: translateY(1px); }
+
+.pills { display: flex; flex-wrap: wrap; margin-top: 4px; }
+
+.modlist { columns: 2; column-gap: 24px; font-size: 0.85rem; }
+.modlist li { break-inside: avoid; margin-bottom: 6px; }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

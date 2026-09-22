@@ -4,9 +4,8 @@ description: What changed in the modpack.
 layout: ../../layouts/BaseLayout.astro
 ---
 
-> **Placeholder.** Log every modpack release here, newest first. Tie each
-> release to the live pack version shown on the home page
-> (`public/assets/version.json`).
+Every modpack release is logged here, newest first. Each entry maps to the
+live pack version shown on the [Mods page](../) (`src/data/version.json`).
 
 ## 0.1.0 — provisional
 

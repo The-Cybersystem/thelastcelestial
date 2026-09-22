@@ -11,6 +11,7 @@ const { title, description } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const pageTitle = title ? `${title} · ${siteConfig.name}` : siteConfig.name;
 const pageDesc = description ?? siteConfig.tagline;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://the-cybersystem.github.io').toString();
 
 const links: { href: string; label: string }[] = [
   { href: `${base}`, label: 'Home' },
@@ -29,6 +30,13 @@ const links: { href: string; label: string }[] = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={pageDesc} />
     <title>{pageTitle}</title>
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
   </head>
   <body>

@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import pack from '../../data/version.json';
+import modlist from '../../data/modlist.json';
+const base = import.meta.env.BASE_URL;
+const systems = [
+  { name: 'Automation & industry', items: 'Create, Create: Big Cannons, Applied Energistics 2, Mekanism, Refined Storage' },
+  { name: 'Magic & occult', items: 'Ars Nouveau (+ addons), Hexerei, Occultism' },
+  { name: 'Combat & firearms', items: 'Timeless & Classics: Zero (TACZ), SecurityCraft' },
+  { name: 'World', items: 'Biomes O’ Plenty, Tectonic, YUNG’s Better structures, Quark, Serene Seasons' },
+  { name: 'Farm & life', items: 'Farmer’s Delight + addons, Croptopia, Let’s Do, Handcrafted' },
+  { name: 'Client comfort', items: 'JourneyMap, JEI, AppleSkin, Curios, Sophisticated Backpacks, voice chat' },
+];
+---
+
+<BaseLayout
+  title="The Modpack"
+  description="The exact NeoForge 1.21.1 pack that runs the world, its version, and its full client modlist."
+>
+  <h1>The Modpack</h1>
+  <p lang="en">
+    The world runs a curated NeoForge pack. The server's integrity service
+    verifies your client against this exact modlist — install the pack as
+    published, don't hand-assemble mods.
+  </p>
+
+  <section class="grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin: 18px 0">
+    <div class="card"><h3 style="margin:0 0 4px">Pack version</h3><strong>{pack.packVersion}</strong><p class="lede">updated {pack.updatedAt}</p></div>
+    <div class="card"><h3 style="margin:0 0 4px">Mods</h3><strong>{modlist.count}</strong><p class="lede">client modlist</p></div>
+    <div class="card"><h3 style="margin:0 0 4px">Minecraft</h3><strong>{pack.minecraft}</strong><p class="lede">{pack.loader}</p></div>
+  </section>
+
+  <section class="grid" style="grid-template-columns: 1fr">
+    <div class="card">
+      <h3 style="margin-top:0">Headline systems</h3>
+      <p class="lede">
+        {systems.map((s) => (
+          <span><strong>{s.name}:</strong> {s.items}</span>
+        ))}
+      </p>
+    </div>
+  </section>
+
+  <details class="card" style="margin: 18px 0">
+    <summary style="cursor:pointer">
+      Full client modlist ({modlist.count} files) — generated from the server
+      pack on {modlist.generatedAt}
+    </summary>
+    <ul class="modlist">
+      {modlist.files.map((f) => <li><code>{f}</code></li>)}
+    </ul>
+    <p class="lede">
+      Server-only tools (map rendering, integrity, admin tooling) are not
+      published here.
+    </p>
+  </details>
+
+  <p>
+    Version history: <a href={`${base}mods/changelog/`}>Changelog</a> ·
+    How changes are tested: <a href={`${base}mods/development/`}>Development</a>
+  </p>
+</BaseLayout>

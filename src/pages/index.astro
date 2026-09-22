@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ServerStatus from '../components/ServerStatus.astro';
 import MapEmbed from '../components/MapEmbed.astro';
 import { siteConfig } from '../config';
+import pack from '../data/version.json';
+import modlist from '../data/modlist.json';
 
 const base = import.meta.env.BASE_URL;
 const cards = [
@@ -26,10 +28,16 @@ const cards = [
   },
   {
     title: 'The Modpack',
-    body: 'Modlist, changelog, and how development is coordinated.',
+    body: `Pack ${pack.packVersion} — ${modlist.count} mods on NeoForge 1.21.1.`,
     href: `${base}mods/`,
     cta: 'See the mods',
   },
+];
+const stats = [
+  { label: 'Pack', value: pack.packVersion },
+  { label: 'Mods', value: String(modlist.count) },
+  { label: 'Loader', value: 'NeoForge 21.1.250' },
+  { label: 'Minecraft', value: pack.minecraft },
 ];
 ---
 
@@ -41,12 +49,18 @@ const cards = [
     <h1>The Last Celestial</h1>
     <p class="tagline">{siteConfig.tagline}</p>
     <p lang="en">
-      A small, hard-mode, tightly-lore'd Minecraft community. Join the address:
+      A small, hard-mode, tightly-lore'd Minecraft community. Join at:
     </p>
-    <code class="mc-address">{siteConfig.mcAddressDisplay}</code>
-    <p class="pill">{siteConfig.loader}</p>
-    <p class="pill">Minecraft {siteConfig.minecraftVersion}</p>
-    <p class="pill">Survival · Hard</p>
+    <div class="join">
+      <code class="mc-address">{siteConfig.mcAddressDisplay}</code>
+      <button id="copy-address" type="button">Copy</button>
+    </div>
+    <div class="pills">
+      {stats.map((s) => (
+        <span class="pill">{s.label} {s.value}</span>
+      ))}
+      <span class="pill">Survival · Hard</span>
+    </div>
   </section>
 
   <section class="grid">
@@ -67,3 +81,19 @@ const cards = [
     <MapEmbed />
   </section>
 </BaseLayout>
+
+<script>
+  const btn = document.querySelector('#copy-address');
+  const addr = document.querySelector('.mc-address');
+  if (btn && addr) {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(addr.textContent ?? '');
+        btn.textContent = 'Copied!';
+        setTimeout(() => (btn.textContent = 'Copy'), 1400);
+      } catch {
+        btn.textContent = 'Copy failed';
+      }
+    });
+  }
+</script>
