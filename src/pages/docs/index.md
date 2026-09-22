@@ -11,10 +11,10 @@ truth for how the world is run.
 ## Sections
 
 - **[Getting Started](./getting-started/)** — joining, the modpack, and first steps.
-- **[The Rules](./rules/)** — what is and isn't allowed.
-- **[Governance](./governance/)** — how decisions and rulings are made.
-- **[FAQ](./faq/)** — common questions.
+- **[The Rules](./rules/)** — the law of the world: reach of staff, judgment, the review panel, land & war, integrity, and the Hard Rules.
+- **[Governance](./governance/)** — managed democracy, what may be put to a vote, how a vote is won, and the tiers of service.
 - **[The Modpack](./modpack/)** — the mod list and how it's maintained.
+- **[FAQ](./faq/)** — common questions.
 
-> This is placeholder content. Every page here is a markdown file in
-> `src/pages/docs/` — edit it, push, and the site rebuilds itself.
+Every page here is a markdown file in `src/pages/docs/` — edit it, push, and
+the site rebuilds itself.
