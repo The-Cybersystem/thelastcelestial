@@ -31,8 +31,10 @@ No manual steps.
 
 Lore, rules, and changelog are all markdown. Edit, open a pull request, done.
 
-## Open items
+## Security
 
-- [ ] Wire `doc/modpack.md` and home page version badge to `version.json` at build time
-- [ ] Generate the full modlist from the server's pack inventory
-- [ ] Fill in real IP/DDNS, Funnel URL, and whitelist flow
+See [`SECURITY.md`](SECURITY.md) for the full policy — supported versions,
+scope, and how to report. For anything affecting the live site, server, or
+player data, use **private** reporting (the repo's private vulnerability
+reporting, or email encrypted to Riven's GPG key `7F9348CDB8611F47`) rather than
+a public issue. Never open a public issue for sensitive findings.
