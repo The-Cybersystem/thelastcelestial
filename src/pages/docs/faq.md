@@ -6,7 +6,9 @@ layout: ../../layouts/BaseLayout.astro
 
 Common questions get added here as the community grows.
 
-**How do I get whitelisted?** — Ask. Contact the admin; invite-only.
+**How do I get whitelisted?** — The community runs through a Discord server.
+Ask any member or the admin for an invite, and you'll be whitelisted and
+sent the exact pack archive. It's invite-only by design.
 
 **What modpack / loader?** — NeoForge 1.21.1, distributed as an exact pack. See
 [the modpack page](./modpack/).

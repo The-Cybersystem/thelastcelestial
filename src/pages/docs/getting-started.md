@@ -2,20 +2,23 @@
 title: Getting Started
 description: How to apply, install the modpack, and get into the world.
 layout: ../../layouts/BaseLayout.astro
+import { siteConfig } from '../../config';
 ---
 
-The world is currently a small, whitelist-style community: connection is by
-invite, and honesty about the modpack matters more than skill.
+The world is a small, whitelist-style community: connection is by invite, and
+honesty about the modpack matters more than skill.
 
-1. **Reach out** — the server admin hands out the address and whitelists
-   players who ask. The join address lives on the [home page](../).
-2. **Install the modpack** — the exact NeoForge 1.21.1 pack is distributed
-   directly. Do **not** hand-assemble mods from other packs; the server
-   integrity service verifies your client modlist, and deviating gets the
-   client kicked.
-3. **Follow the rules** — read [the rules](../rules/) before your first night.
+1. **Join the community** — the server runs through the community Discord.
+   Ask any member (or the admin) for an invite, get whitelisted, and receive
+   the join address. The address is on the [home page](../).
+2. **Install the modpack** — the pack is distributed **directly to whitelisted
+   players as an archive** (`.zip` of the exact client). Do **not**
+   hand-assemble mods or reuse an older folder: the server's integrity service
+   verifies your client modlist against the blessed baseline and kicks any
+   deviation at login.
+3. **Follow the rules** — the ruleset is being revised; the current draft is
+   on [the rules page](../rules/).
 4. **Claim your lore** — every player character has a page under
    [Lore](../../lore/). Write yours and open a pull request.
 
-> **TODO** — replace this placeholder with the concrete onboarding flow:
-> whitelist process, launcher/instance setup, and any one-time first-join steps.
+{siteConfig.discordInvite && `**Looking for the Discord?** Join here: ${siteConfig.discordInvite}`}

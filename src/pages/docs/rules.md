@@ -4,9 +4,10 @@ description: The rules of the world.
 layout: ../../layouts/BaseLayout.astro
 ---
 
-> **Placeholder.** Replace with the actual living ruleset.
+> **Under revision.** The living ruleset is being rewritten. What follows is
+> the working draft; exact wording will land here when the admin finalizes it.
 
-A short, hard-mode world runs on shared trust. Character of the rules:
+A short, hard-mode world runs on shared trust. Working draft:
 
 - The world runs **Survival · Hard**. Death hurts.
 - **PVP** is enabled — settle it out of character before you settle it in it.

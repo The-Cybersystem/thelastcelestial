@@ -15,6 +15,9 @@ export const siteConfig = {
   minecraftVersion: '1.21.1',
   loader: 'NeoForge',
 
+  /** Community Discord invite (set to '' until you have a real link). */
+  discordInvite: '',
+
   /** Live map bridge (BlueMap behind a Tailscale Funnel). */
   mapBaseUrl: 'https://riven-webster-dev.saiga-saturation.ts.net',
 
