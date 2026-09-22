@@ -9,5 +9,5 @@ the player who owns them. Each page belongs to the player behind it, and the
 world's one rule for them: keep it cooperating with the lore — this world
 stays consistent.
 
-- [Riven](./riven/)
-- [The Sable Vigil](./sable-vigil/)
+- [Riven — the Ender Knight](./riven/)
+- [Sable — the Vigil](./sable-vigil/)
