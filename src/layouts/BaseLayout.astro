@@ -5,12 +5,14 @@ import '../styles/global.css';
 export interface Props {
   title?: string;
   description?: string;
+  frontmatter?: { title?: string; description?: string };
 }
 
-const { title, description } = Astro.props;
+const { title, description, frontmatter } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const pageTitle = title ? `${title} · ${siteConfig.name}` : siteConfig.name;
-const pageDesc = description ?? siteConfig.tagline;
+const finalTitle = title ?? frontmatter?.title;
+const pageTitle = finalTitle ? `${finalTitle} · ${siteConfig.name}` : siteConfig.name;
+const pageDesc = description ?? frontmatter?.description ?? siteConfig.tagline;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://the-cybersystem.github.io').toString();
 
 const links: { href: string; label: string }[] = [
@@ -64,6 +66,11 @@ const links: { href: string; label: string }[] = [
           <a href="https://github.com/The-Cybersystem">The-Cybersystem</a> ·
           join at <code>exploringfoundation.ddns.net:25564</code> ·{' '}
           <a href={siteConfig.discordInvite} target="_blank" rel="noopener noreferrer">Discord</a>
+        </p>
+        <p class="footer-meta" style="margin: 6px 0 0; font-size: .85rem; opacity: .7;">
+          <a style="color: inherit" href={`${base}privacy/`}>Privacy</a> ·{' '}
+          <a style="color: inherit" href={`${base}terms/`}>Terms</a> ·{' '}
+          <a style="color: inherit" href={`${base}docs/rules/`}>Rules</a>
         </p>
       </div>
     </footer>
